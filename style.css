@@ -1,0 +1,476 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #2e86de;
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins';
+}
+.container{
+    width: 770px;
+    background-color: #fff;
+}
+.header{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.header #month{
+    color: #ff9f43;
+    font-size: 30px;
+    font-weight: 600;
+}
+button{
+    width: 75px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: wheat;
+}
+.header button{
+    background-color: #ff9f43;
+}
+.weekdays{
+    width: 100%; 
+    display: flex;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #9dc6f3;
+    color: black;
+    font-weight: 500px;
+}
+.weekdays div{
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#calendar{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.day{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgb(212, 200, 200);
+    color: #12559c;;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.day:hover{
+    background-color: #0f77e7;
+    color: white;
+}
+#currentDay{
+    background-color: #12559c;
+    color: #fff;
+}
+.event{
+    font-size: 12px;
+    padding: 3px;
+    background-color: rgb(43, 42, 42);
+    color: white;
+    border-radius: 5px;
+    max-height: 55px;
+    overflow: hidden;
+}
+.event.holiday{
+    background-color: #aacdf1;
+    color: black;
+}
+.plain{
+    cursor: default;
+    box-shadow: none;
+}
+#modal{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#addEvent,
+#viewEvent{
+    display: none;
+    width: 350px;
+    position: absolute;
+    z-index: 20;
+    background-color: #fff;
+    padding: 25px;
+}
+#addEvent h2,
+#viewEvent h2{
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #12559c;
+}
+#txtTitle{
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid whitesmoke;
+    font-size: 16px;
+}
+#btnSave{
+    background-color: #ff9f43;
+    font-weight: bold;
+}
+.btnClose{
+    background-color: black;
+}
+#btnDelete{
+    background-color: red;
+}
+#viewEvent p{
+    margin-bottom: 20px;
+}
+.error{
+    border: 1px solid red !important;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .weekdays{
+        font-size: 14px;
+    }
+    .weekdays div{
+        width: 84px;
+    }
+    .day{
+        width: 84px;
+        height: 80px;
+        font-weight: normal;
+        margin-left: 15px;
+    }
+} 
+@media only screen and (max-width: 780px) {
+    .container{
+        width: 700px;
+    }
+    .weekdays{
+        font-size: 13px;
+    }
+    .weekdays div{
+        width: 75px;
+    }
+    .day{
+        width: 75px;
+        height: 80px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 700px) {
+    .container{
+        width: 700px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 13px;
+    }
+    .weekdays div{
+        width: 75px;
+    }
+    .day{
+        width: 75px;
+        height: 80px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 670px) {
+    .container{
+        width: 650px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 12px;
+    }
+    .weekdays div{
+        width: 70px;
+    }
+    .day{
+        width: 70px;
+        height: 75px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 640px) {
+    .container{
+        width: 650px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 12px;
+    }
+    .weekdays div{
+        width: 65px;
+    }
+    .day{
+        width: 65px;
+        height: 75px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 600px) {
+    .container{
+        width: 600px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 10px;
+    }
+    .weekdays div{
+        width: 60px;
+    }
+    .day{
+        width: 60px;
+        height: 60px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 562px) {
+    .container{
+        width: 562px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 10px;
+    }
+    .weekdays div{
+        width: 55px;
+    }
+    .day{
+        width: 55px;
+        height: 50px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 526px) {
+    .container{
+        width: 526px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 10px;
+    }
+    .weekdays div{
+        width: 50px;
+    }
+    .day{
+        width: 50px;
+        height: 50px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 495px) {
+    .container{
+        width: 495px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 10px;
+    }
+    .weekdays div{
+        width: 48px;
+    }
+    .day{
+        width: 48px;
+        height: 48px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 478px) {
+    .container{
+        width: 478px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 10px;
+    }
+    .weekdays div{
+        width: 45px;
+    }
+    .day{
+        width: 45px;
+        height: 45px;
+        font-weight: normal;
+    }
+} 
+@media only screen and (max-width: 462px) {
+    .container{
+        width: 462px;
+    }
+    .btnStyle{
+        margin-right: 50px;
+    }
+    .weekdays{
+        font-size: 9px;
+        font-weight: bold;
+    }
+    .weekdays div{
+        width: 45px;
+    }
+    .day{
+        width: 43px;
+        height: 43px;
+    }
+} 
+@media only screen and (max-width: 442px) {
+    .container{
+        width: 442px;
+    }
+    .btnStyle{
+        margin-right: 40px;
+    }
+    .weekdays{
+        font-size: 9px;
+        font-weight: bold;
+    }
+    .weekdays div{
+        width: 40px;
+    }
+    .day{
+        width: 40px;
+        height: 43px;
+    }
+} 
+@media only screen and (max-width: 424px) {
+    .container{
+        width: 424px;
+    }
+    .btnStyle{
+        margin-right: 40px;
+    }
+    .weekdays{
+        font-size: 8px;
+    }
+    .weekdays div{
+        width: 35px;
+    }
+    .day{
+        width: 35px;
+        height: 38px;
+    }
+} 
+@media only screen and (max-width: 390px) {
+    .container{
+        width: 390px;
+    }
+    .btnStyle{
+        margin-right: 40px;
+    }
+    .weekdays{
+        font-size: 7px;
+    }
+    .weekdays div{
+        width: 30px;
+    }
+    .day{
+        width: 30px;
+        height: 38px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    #addEvent,
+    #viewEvent{
+        display: none;
+        width: 250px;
+        position: absolute;
+        z-index: 20;
+        background-color: #fff;
+        padding: 20px;
+    }
+    #addEvent h2,
+    #viewEvent h2{
+        font-size: 20px;
+    }
+
+    #txtTitle{
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 25px;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid whitesmoke;
+        font-size: 16px;
+    }
+
+} 
+@media only screen and (max-width: 358px) {
+    .container{
+        width: 358px;
+    }
+    .header #month{
+        font-size: 25px;
+        font-weight: 400;
+    }
+    button{
+        width: 65px;
+    }
+    .weekdays{
+        font-size: 7px;
+    }
+    .weekdays div{
+        width: 25px;
+    }
+    .day{
+        width: 25px;
+        height: 28px;
+    }
+} 
+@media only screen and (max-width: 350px) {
+    .container{
+        width: 350px;
+    }
+    button{
+        width: 60px;
+    }
+    .weekdays{
+        font-size: 5px;
+    }
+    .weekdays div{
+        width: 24px;
+    }
+    .day{
+        width: 24px;
+        height: 25px;
+    }
+} 
+
+
